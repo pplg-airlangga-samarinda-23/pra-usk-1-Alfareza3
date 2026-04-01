@@ -1,6 +1,6 @@
 # 🛒 Aplikasi Kasir – Sistem Point of Sales Berbasis Web
 
-Aplikasi Kasir (Point of Sales) efisien dan elegan yang khusus dikembangkan menggunakan **PHP Native** dan **Vanilla CSS3** untuk memenuhi Uji Kompetensi Keahlian (UKK) jurusan Rekayasa Perangkat Lunak (RPL) Paket 4.
+Aplikasi kasir berbasis web yang digunakan untuk mengelola transaksi penjualan, data produk, dan laporan secara efisien. Cocok digunakan untuk toko kecil hingga menengah.
 
 ---
 
