@@ -54,7 +54,12 @@ Aplikasi kasir berbasis web yang digunakan untuk mengelola transaksi penjualan, 
 http://localhost/pra-usk-1-Alfareza3/
 ```
 
-- Kredensial _Default_: `admin` / `password` atau `petugas` / `password`.
+### 🔐 Kredensial Akses Default
+
+| Tingkat Akses (Role) | Username  | Password      |
+| -------------------- | --------- | ------------- |
+| **Administrator**    | `admin`   | `admin1234`   |
+| **Petugas Kasir**    | `petugas` | `petugas1234` |
 
 ---
 
