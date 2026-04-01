@@ -142,7 +142,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
 <aside class="sidebar">
   <div class="sidebar-logo">
     <span style="font-size: 28px; color: var(--brand-light);"><i class="ph-fill ph-shopping-cart-simple"></i></span>
-    <div><h2>Aplikasi Kasir</h2><small>UKK PPLG 2023/2024</small></div>
+    <div><h2>Aplikasi Kasir</h2></div>
   </div>
   <nav>
     <div class="nav-label">Menu Utama</div>
