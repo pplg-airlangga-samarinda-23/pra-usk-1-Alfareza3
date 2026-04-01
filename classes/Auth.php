@@ -8,7 +8,7 @@ class Auth {
         $this->conn = Database::getInstance()->getConn();
     }
 
-    // 🔐 LOGIN TANPA HASH
+    // 🔐 LOGIN DENGAN HASH
     public function login(string $username, string $password): bool {
         if (session_status() === PHP_SESSION_NONE) session_start();
 
@@ -18,7 +18,19 @@ class Auth {
         $result = $stmt->get_result();
 
         if ($row = $result->fetch_assoc()) {
-            if ($password === $row['Password']) { // tanpa hash
+            $valid = false;
+            if (password_verify($password, $row['Password'])) {
+                $valid = true;
+            } elseif ($password === $row['Password']) {
+                // Auto-upgrade plaintext to hash
+                $newHash = password_hash($password, PASSWORD_DEFAULT);
+                $upd = $this->conn->prepare("UPDATE users SET Password = ? WHERE UserID = ?");
+                $upd->bind_param("si", $newHash, $row['UserID']);
+                $upd->execute();
+                $valid = true;
+            }
+
+            if ($valid) {
                 $_SESSION['user_id']   = $row['UserID'];
                 $_SESSION['username']  = $row['Username'];
                 $_SESSION['nama']      = $row['NamaUser'];
@@ -55,12 +67,13 @@ class Auth {
         }
     }
 
-    // 📝 REGISTER TANPA HASH
+    // 📝 REGISTER DENGAN HASH
     public function register(string $nama, string $username, string $password, string $role): bool {
+        $hashed = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $this->conn->prepare(
             "INSERT INTO users (NamaUser, Username, Password, Role) VALUES (?, ?, ?, ?)"
         );
-        $stmt->bind_param("ssss", $nama, $username, $password, $role);
+        $stmt->bind_param("ssss", $nama, $username, $hashed, $role);
         return $stmt->execute();
     }
 
@@ -81,8 +94,9 @@ class Auth {
             $stmt = $this->conn->prepare("UPDATE users SET NamaUser=?, Username=?, Role=? WHERE UserID=?");
             $stmt->bind_param("sssi", $nama, $username, $role, $id);
         } else {
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $this->conn->prepare("UPDATE users SET NamaUser=?, Username=?, Password=?, Role=? WHERE UserID=?");
-            $stmt->bind_param("ssssi", $nama, $username, $password, $role, $id);
+            $stmt->bind_param("ssssi", $nama, $username, $hashed, $role, $id);
         }
         return $stmt->execute();
     }
