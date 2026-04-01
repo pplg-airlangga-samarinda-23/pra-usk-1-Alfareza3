@@ -56,10 +56,10 @@ http://localhost/pra-usk-1-Alfareza3/
 
 ### 🔐 Kredensial Akses Default
 
-| Tingkat Akses (Role) | Username  | Password      |
-| -------------------- | --------- | ------------- |
-| **Administrator**    | `admin`   | `admin1234`   |
-| **Petugas Kasir**    | `petugas` | `petugas1234` |
+| Tingkat Akses (Role) | Username  | Password |
+| -------------------- | --------- | -------- |
+| **Administrator**    | `admin`   | `1234`   |
+| **Petugas Kasir**    | `petugas` | `1234`   |
 
 ---
 
