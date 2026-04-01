@@ -8,57 +8,57 @@ Aplikasi Kasir (Point of Sales) efisien dan elegan yang khusus dikembangkan meng
 
 ### 🌐 Halaman Publik (Autentikasi)
 
-* Form Login Multi-Level (Administrator & Petugas Kasir).
-* Sistem Autentikasi Cerdas dengan standar enkripsi Hash Bcrypt (`password_hash`).
-* Auto-migrasi password *plaintext* ke dalam *hash* secara otomatis untuk akun tipe lama.
+- Form Login Multi-Level (Administrator & Petugas Kasir).
+- Sistem Autentikasi Cerdas dengan standar enkripsi Hash Bcrypt (`password_hash`).
+- Auto-migrasi password _plaintext_ ke dalam _hash_ secara otomatis untuk akun tipe lama.
 
 ### 🔐 Dashboard Admin / Petugas
 
-* **Transaksi Kasir Real-Time**: Input banyak produk sekaligus pada satu tagihan (keranjang dinamis) beserta perhitungan total serentak.
-* **Manajemen Produk & Stok**: Pendataan master barang, peringatan saat stok sudah mulai menipis (<10 barang), serta pemotongan stok berantai setelah penjualan tersimpan.
-* **Manajemen Pelanggan**: Registrasi dan penyuntingan daftar konsumen setia yang akan terhubung dengan fitur Transaksi.
-* **Laporan Penjualan**: Rekapitulasi omzet yang bisa difilter berdasarkan custom tanggal dan sudah didukung fasilitas tombol Cetak (*Print-ready*).
-* **Super-Admin User Management**: Operasi CRUD akun khusus hak akses Administrator. 
+- **Transaksi Kasir Real-Time**: Input banyak produk sekaligus pada satu tagihan (keranjang dinamis) beserta perhitungan total serentak.
+- **Manajemen Produk & Stok**: Pendataan master barang, peringatan saat stok sudah mulai menipis (<10 barang), serta pemotongan stok berantai setelah penjualan tersimpan.
+- **Manajemen Pelanggan**: Registrasi dan penyuntingan daftar konsumen setia yang akan terhubung dengan fitur Transaksi.
+- **Laporan Penjualan**: Rekapitulasi omzet yang bisa difilter berdasarkan custom tanggal dan sudah didukung fasilitas tombol Cetak (_Print-ready_).
+- **Super-Admin User Management**: Operasi CRUD akun khusus hak akses Administrator.
 
 ---
 
 ## 🛠️ Teknologi yang Digunakan
 
-* **Backend**: PHP 8 (OOP & Procedural Hybrid)
-* **Database**: MySQL / MariaDB (via konektor `mysqli`)
-* **Frontend**: Vanilla CSS3 (Custom Variables) dan HTML5 Semantic
-* **Library Tambahan**: [Phosphor Icons](https://phosphoricons.com/) untuk grafis ikonik dan modern
+- **Backend**: PHP 8 (OOP & Procedural Hybrid)
+- **Database**: MySQL / MariaDB (via konektor `mysqli`)
+- **Frontend**: Vanilla CSS3 (Custom Variables) dan HTML5 Semantic
+- **Library Tambahan**: [Phosphor Icons](https://phosphoricons.com/) untuk grafis ikonik dan modern
 
 ---
 
 ## 🗃️ Struktur Database
 
-* **`users`** – Tabel untuk data kredensial login pegawai (petugas kasir / administrator) dengan proteksi *password*.
-* **`produk`** – Berisi katalog master semua jenis barang dagangan beserta harga jual dan jumlah _inventory_.
-* **`pelanggan`** – Relasi data informasi daftar nama, alamat, serta telepon dari para pembeli/konsumen reguler.
-* **`penjualan`** – Mencatat *Log/Header* transaksi utama per *invoice*, referensi tanggal, jumlah tagihan, pembeli, serta petugas yang melayani.
-* **`detailpenjualan`** – Rekaman detail per *item/keranjang* apa saja (jumlah qty produk) yang terkait dengan ID di tabel penjualan utama.
+- **`users`** – Tabel untuk data kredensial login pegawai (petugas kasir / administrator) dengan proteksi _password_.
+- **`produk`** – Berisi katalog master semua jenis barang dagangan beserta harga jual dan jumlah _inventory_.
+- **`pelanggan`** – Relasi data informasi daftar nama, alamat, serta telepon dari para pembeli/konsumen reguler.
+- **`penjualan`** – Mencatat _Log/Header_ transaksi utama per _invoice_, referensi tanggal, jumlah tagihan, pembeli, serta petugas yang melayani.
+- **`detailpenjualan`** – Rekaman detail per _item/keranjang_ apa saja (jumlah qty produk) yang terkait dengan ID di tabel penjualan utama.
 
 ---
 
 ## 🧪 Cara Menjalankan Proyek
 
-1. Clone / download *project* ini (*zip*).
-2. Pindahkan folder hasil ekstraksi ke folder *local web server* (`htdocs` untuk XAMPP, atau direktori `www` untuk Laragon / WAMP).
+1. Clone / download _project_ ini (_zip_).
+2. Pindahkan folder hasil ekstraksi ke folder _local web server_ (`htdocs` untuk XAMPP, atau direktori `www` untuk Laragon / WAMP).
 3. Nyalakan layanan Apache dan MySQL pada server komputer Anda.
-4. Buat dan *setup* struktur database baru, lalu **Import file `kasir.sql`** yang disediakan via phpMyAdmin/HeidiSQL.
-5. Cek file `config/database.php` dan **atur konfigurasi *password* MySQL** komputer Anda jikalau direkomendasikan. (Kosongkan *var password* jika standar XAMPP).
-6. Buka halaman, jalankan di *browser* Anda:
+4. Buat dan _setup_ struktur database baru, lalu **Import file `kasir.sql`** yang disediakan via phpMyAdmin/HeidiSQL.
+5. Cek file `config/database.php` dan **atur konfigurasi _password_ MySQL** komputer Anda jikalau direkomendasikan. (Kosongkan _var password_ jika standar XAMPP).
+6. Buka halaman, jalankan di _browser_ Anda:
 
 ```text
 http://localhost/pra-usk-1-Alfareza3/
 ```
 
-- Kredensial *Default*: `admin` / `password` atau `petugas` / `password`.
+- Kredensial _Default_: `admin` / `password` atau `petugas` / `password`.
 
 ---
 
-## 📂 Struktur Folder 
+## 📂 Struktur Folder
 
 ```text
 /api        # Script endpoint asinkron sederhana untuk fetch data kasir via AJAX
@@ -73,15 +73,14 @@ http://localhost/pra-usk-1-Alfareza3/
 
 ## 👤 Developer
 
-**Dimas Fahri Alfareza**  
+**Dimas Fahri Alfareza**
 
-SMKTI Airlangga
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/alfareza.3)
+SMKTI Airlangga - PPLG
 
 ---
 
 ## 📄 Lisensi
 
-Proyek ini sepenuhnya bersifat *Open Source* yang dirancang secara spesifik, ekslusif diperuntukkan dan didedikasikan atas Ujian Praktik Sekolah. Anda diizinkan untuk memodifikasi atau memperbaruinya untuk tujuan edukasi.
+Proyek ini sepenuhnya bersifat _Open Source_ yang dirancang secara spesifik, ekslusif diperuntukkan dan didedikasikan atas Ujian Praktik Sekolah. Anda diizinkan untuk memodifikasi atau memperbaruinya untuk tujuan edukasi.
 
 ---
